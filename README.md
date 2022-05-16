@@ -9,14 +9,13 @@ When testing or performing a disaster recovery solution, it’s often required n
 
 This package includes:
 * The script that does that convert AWS DRS Failback Client livecd to a bootable disk on GCP <Convertor-GCP.sh>
-* The actual disk that resulst from this conversion and is used for this demo <GCP-bootable-failback-client.vmdk> 
 
 
 ## Conversion workflow
 
 
 
-<img aligh="center" src="https://github.com/aws-samples/aws-drs-failback-client-gcp/blob/main/Conversion-workflow.png" width=700 height=450>
+<img aligh="center" src="https://github.com/aws-samples/aws-drs-failback-client-gcp/blob/main/Conversion-workflow.png" width=750 height=450>
 
 
 
