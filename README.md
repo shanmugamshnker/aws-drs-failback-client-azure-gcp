@@ -15,13 +15,27 @@ This package includes:
 
 
 
-<img aligh="center" src="https://github.com/aws-samples/aws-drs-failback-client-gcp/blob/main/Conversion-workflow.png" width=750 height=450>
+<img aligh="center" src="https://github.com/aws-samples/aws-drs-failback-client-gcp/blob/main/Conversion-workflow.png" width=650 height=350>
 
 
 
 ## Step by Step 
 
-Add step by step instruction on how to run the script, inputs, parameters..etc and what is the expected output.
+1. Download the AWS Failback Client ISO 
+   https://aws-elastic-disaster-recovery-{REGION}.s3.amazonaws.com/latest/failback_livecd/aws-failback-livecd-64bit.isoand 
+2. Boot the Failbacl Client in VMware Workstaion.  
+4. The Failbacl Client will prompt for the AWS Region to initiate failback. Press "Ctrl+c" and you will be dropped into the ec2-user home directory. To switch to root use "sudo -i".
+5. Download the script <Convertor-GCP.sh> 
+6. Add executable permission to the script using "chmod a+x <Convertor-GCP.sh>
+7. Run the script script ./<Convertor-GCP.sh>. You need to provide: 
+      - Region (you can use any region i.e. "us-east-1")
+      - Disk name (i.e /dev/sda)
+      - Partation name  (i.e /dev/sda1)
+   
+   The script will install the kernel, generate grub.cfg, and install grub on the disk. Once this is completed you can upload it to GCP
+   
+8. Once completed, find the resulted .vmdk file in the VMWare workstation and upload it to GCP Cloud Storage. 
+9. Follow the instuctions in the blog post to create and image and continue the failback replication.
 
 
 ## Security
