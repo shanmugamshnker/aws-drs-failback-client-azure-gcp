@@ -1,4 +1,4 @@
-## What?
+
 
 This package includes a shell script to convert the AWS Elastic Disaster Recovery (AWS DRS) provided failback client to a bootable disk that can be attached to a Compute Engine (VM) on Google Cloud Platform (GCP). This VM can later be used to initiate the failback process from GCP to AWS as part of a Disaster Recovery exercise. 
 
