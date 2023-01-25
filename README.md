@@ -1,6 +1,6 @@
 
 
-This package includes a shell script to convert the AWS Elastic Disaster Recovery (AWS DRS) provided failback client to a bootable disk that can be attached to a Compute Engine (VM) on Google Cloud Platform (GCP). This VM can later be used to initiate the failback process from GCP to AWS as part of a Disaster Recovery exercise. 
+This package includes a shell script to convert the AWS Elastic Disaster Recovery (AWS DRS) provided failback client to a bootable disk that can be attached to a Compute Engine (VM) on Google Cloud Platform (GCP) or Azure. This VM can later be used to initiate the failback process from GCP/Azure to AWS as part of a Disaster Recovery exercise. 
 
 
 ## Description
@@ -32,10 +32,47 @@ This package includes:
       - Disk name (i.e /dev/sda)
       - Partation name  (i.e /dev/sda1)
    
-   The script will install the kernel, generate grub.cfg, and install grub on the disk. Once this is completed you can upload it to GCP
+   The script will install the kernel, generate grub.cfg, and install grub on the disk. The steps from are different between GCP and Azure. 
+   
+## For Azure
+
+Convert the results file from step 7 into VHD using the following steps
+
+Using Microsoft Virtual Machine Converter 3.0 on Windows machine >> Launch PowerShell and load the module 
+MvmcCmdlet.psd1 ‘path to the module’
+
+
+Convert VMDK to VHD using the command 
+ConvertTo-MvmcVirtualHardDisk – sourceLiteralpath “path to your file”
+
+
+You may encounter an error that says “The entry 0 is not a supported disk database entry for the descriptor”. 
+
+insert error 
+
+The issue is caused by VMDK file descriptor entries that Microsoft Converter doesn't recognize. To resolve the issue, we need to remove these non-recognized entries. Download and extract dsfok (https://www.mysysadmintips.com/-downloads-/Windows/Servers/dsfok.zip)tool. This tool helps to extract descriptor from VMDK file, and then save modified version back into the VMDK.
+
+insert dsfok
+
+
+You can find the “descriptor.txt” in the location you have specified in the above command. The highlighted entry is not a supported disk database. You need to comment it. 
+
+insert fix
+
+Add the descriptor back to VMDK
+
+insert dsfi
+
+The next step is to convert the VMDK filr into a VHD file using the steps here.
+
+add a link
+
+The last step is to upload the VHD file to Azure > create a snapshot from it > use the snapshot to boot the final VM. 
+
+## For GCP 
    
 8. Once completed, find the resulted .vmdk file in the VMWare workstation and upload it to GCP Cloud Storage. 
-9. Follow the instuctions in the blog post to create and image and continue the failback replication.
+9. Follow the instuctions in the blog post to create and image and continue the failback replication. The blog post link is here 
 
 
 ## Security
