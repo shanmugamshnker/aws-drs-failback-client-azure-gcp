@@ -13,9 +13,7 @@ This package includes:
 
 ## Conversion workflow
 
-
-
-<img aligh="center" src="https://github.com/aws-samples/aws-drs-failback-client-gcp/blob/main/Conversion-workflow.png" width=650 height=350>
+![conversion](https://user-images.githubusercontent.com/59539231/214702878-2614d44b-0bf0-4b21-9bb7-4a200fd7306f.png)
 
 
 
@@ -36,43 +34,42 @@ This package includes:
    
 ## For Azure
 
-Convert the results file from step 7 into VHD using the following steps
+* Convert the results file from step 7 into VHD using the following steps
 
-Using Microsoft Virtual Machine Converter 3.0 on Windows machine >> Launch PowerShell and load the module 
+* Using Microsoft Virtual Machine Converter 3.0 on Windows machine >> Launch PowerShell and load the module 
 MvmcCmdlet.psd1 ‘path to the module’
 
 
-Convert VMDK to VHD using the command 
+* Convert VMDK to VHD using the command 
 ConvertTo-MvmcVirtualHardDisk – sourceLiteralpath “path to your file”
 
 
-You may encounter an error that says “The entry 0 is not a supported disk database entry for the descriptor”. 
+* You may encounter an error that says “The entry 0 is not a supported disk database entry for the descriptor”. 
 
-insert error 
+<img width="858" alt="error" src="https://user-images.githubusercontent.com/59539231/214702970-a8c62e65-17dc-4adf-a245-374646401340.png">
+
 
 The issue is caused by VMDK file descriptor entries that Microsoft Converter doesn't recognize. To resolve the issue, we need to remove these non-recognized entries. Download and extract dsfok (https://www.mysysadmintips.com/-downloads-/Windows/Servers/dsfok.zip)tool. This tool helps to extract descriptor from VMDK file, and then save modified version back into the VMDK.
 
-insert dsfok
+<img width="858" alt="dsfo" src="https://user-images.githubusercontent.com/59539231/214703089-130fc2f8-8a58-4dca-bc92-cdc3a69c1ae2.png">
 
 
 You can find the “descriptor.txt” in the location you have specified in the above command. The highlighted entry is not a supported disk database. You need to comment it. 
 
-insert fix
+<img width="1064" alt="fix" src="https://user-images.githubusercontent.com/59539231/214703134-866110ad-0a2d-4d59-b2d5-6e1aefb79de5.png">
+
 
 Add the descriptor back to VMDK
 
-insert dsfi
+<img width="862" alt="dsfi" src="https://user-images.githubusercontent.com/59539231/214703169-30c1bcdf-f7f6-42d4-8721-8e5c7724825d.png">
 
-The next step is to convert the VMDK filr into a VHD file using the steps here.
 
-add a link
-
-The last step is to upload the VHD file to Azure > create a snapshot from it > use the snapshot to boot the final VM. 
+* The last step is to upload the VHD file to Azure > create a snapshot from it > use the snapshot to boot the final VM. 
 
 ## For GCP 
    
-8. Once completed, find the resulted .vmdk file in the VMWare workstation and upload it to GCP Cloud Storage. 
-9. Follow the instuctions in the blog post to create and image and continue the failback replication. The blog post link is here 
+* Once completed, find the resulted .vmdk file in the VMWare workstation and upload it to GCP Cloud Storage. 
+* Follow the instuctions in the blog post to create and image and continue the failback replication. The blog post link is here 
 
 
 ## Security
