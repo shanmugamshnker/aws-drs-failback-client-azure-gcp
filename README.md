@@ -22,7 +22,7 @@ This package includes:
 3. Download Amazon Linux 2 ISO: Access the Amazon Linux 2 VM User Guide and obtain the Amazon Linux 2 ISO file. Use the link below
   - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/amazon-linux-2-virtual-machine.html
 3. Create New VM: Use the downloaded ISO to create  a new VM in VMware Workstation.
-4. Prepare Additional Storage: In the Amazon Linux 2 VM, Provision a 30 GiB block storage volume and connect it to the VM. This storage is utilized for storting the ISO image and installing kernel and grub.
+4. Prepare Additional Storage: In the Amazon Linux 2 VM, Provision a 30 GiB block storage volume and attach it to the VM. This storage is utilized for storting the ISO image and installing kernel and grub.
 ```
 # lsblk
 NAME    MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
