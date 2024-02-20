@@ -24,7 +24,7 @@ This package includes:
 1. Install VMware Workstation: Begin by setting up a VMware environment, such as VMware Workstation. This will serve as the platform for creating and managing your virtual machines.
 2. Download Amazon Linux 2 ISO: Visit the Amazon Linux 2 VM User Guide and download the Amazon Linux 2 ISO file.
 3. Use the downloaded ISO to create a new virtual machine in your VMware Workstation.
-4. Create and Attach Volume: After setting up the Amazon Linux 2 VM, create an additional storage volume and attach it to the VM created in Step 2.
+4. After setting up the Amazon Linux 2 VM, create an additional block storage volume of 30 GiB and attach it to the VM created in Step 2. We use this volume to install the kernel and grub.
 5. Download the script from the following URL: Convertor-GCP.sh.
 6. Grant executable permissions to the downloaded script using the command:
 `# chmod a+x Convertor-GCP.sh`
@@ -36,6 +36,8 @@ The script will prompt you to enter several details:
 Region: Choose any available region (e.g., "us-east-1").
 Disk Name: Specify the disk name (e.g., "/dev/sda").
 Partition Name: Indicate the partition name (e.g., "/dev/sda1").
+
+
 
 The script will install the kernel, generate grub.cfg, and install grub on the disk. The steps from are different between GCP and Azure. 
    
