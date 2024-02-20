@@ -18,11 +18,11 @@ This package includes:
 
 
 ## Step by Step 
-1. Set Up VMware Workstation: Install VMware Workstation to create a virtual environment. Ensure this virtual machine (VM) has internet access to download the required ISO and Kernel.
-2. Download Amazon Linux 2 ISO: Access the Amazon Linux 2 VM User Guide and obtain the Amazon Linux 2 ISO file. Use the link below
+1. **Set Up VMware Workstation**: Install VMware Workstation to create a virtual environment. Ensure this virtual machine (VM) has internet access to download the required ISO and Kernel.
+2. **Download Amazon Linux 2 ISO**: Access the Amazon Linux 2 VM User Guide and obtain the Amazon Linux 2 ISO file. Use the link below
   - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/amazon-linux-2-virtual-machine.html
-3. Create New VM: Use the downloaded ISO to create  a new VM in VMware Workstation.
-4. Prepare Additional Storage: In the Amazon Linux 2 VM, Provision a 30 GiB block storage volume and attach it to the VM. This storage is utilized for storting the ISO image and installing kernel and grub.
+3. **Create New VM**: Use the downloaded ISO to create  a new VM in VMware Workstation.
+4. **Prepare Additional Storage**: In the Amazon Linux 2 VM, Provision a 30 GiB block storage volume and attach it to the VM. This storage is utilized for storting the ISO image and installing kernel and grub.
 ```
 # lsblk
 NAME    MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
@@ -75,12 +75,13 @@ realtime =none                   extsz=4096   blocks=0, rtextents=0
 /dev/xvda1: LABEL="/" UUID="43213978-8f11-4c09-8bae-ac42538542f2" TYPE="xfs" PARTLABEL="Linux" PARTUUID="ef89ea91-0190-487b-a64e-91e3c1e4341a"
 /dev/xvdb1: UUID="33a2073d-a4a6-46c1-86b3-18e947ad651d" TYPE="xfs" PARTUUID="b3d3b77d-01"
 ```
-6. Download the Convertor Script: Retrieve the script from the provided URL: `wget https://raw.githubusercontent.com/shanmugamshnker/aws-drs-failback-client-azure-gcp/document_fix/Convertor-GCP.sh`
+6. **Download the Convertor Script**: Retrieve the script from the provided URL:
+`wget https://raw.githubusercontent.com/shanmugamshnker/aws-drs-failback-client-azure-gcp/document_fix/Convertor-GCP.sh`
 
-7.Grant executable permissions to the downloaded script using the command:
+7. **Grant executable permissions**:
 `# chmod a+x Convertor-GCP.sh`
 
-8. Execute the Script: Run the script by executing:
+8. **Execute the Script**: Run the script by executing:
 `# ./Convertor-GCP.sh`
 
 The script will prompt you to enter several details:
