@@ -25,7 +25,8 @@ This package includes:
 2. Download Amazon Linux 2 ISO: Visit the Amazon Linux 2 VM User Guide and download the Amazon Linux 2 ISO file.
 3. Use the downloaded ISO to create a new virtual machine in your VMware Workstation.
 4. After setting up the Amazon Linux 2 VM, create an additional block storage volume of 30 GiB and attach it to the VM created in Step 2. We use this volume to install the kernel and grub.
-5. Download the script from the following URL: Convertor-GCP.sh.
+5. Download the script from the following URL:
+`wget https://raw.githubusercontent.com/shanmugamshnker/aws-drs-failback-client-azure-gcp/document_fix/Convertor-GCP.sh`
 6. Grant executable permissions to the downloaded script using the command:
 `# chmod a+x Convertor-GCP.sh`
 7. Execute the Script: Run the script by executing:
@@ -43,7 +44,7 @@ The script will install the kernel, generate grub.cfg, and install grub on the d
    
 ## For Azure
 
-* Convert the results file from step 7 into VHD using the following steps
+* Convert the results file from step 6 into VHD using the following steps
 
 * Using Microsoft Virtual Machine Converter 3.0 on Windows machine >> Launch PowerShell and load the module 
 MvmcCmdlet.psd1 ‘path to the module’
