@@ -22,15 +22,14 @@ This package includes:
 # Setting up a VMware Environment with Amazon Linux 2 To create Failback ISO for Azure and GCP
 
 1. Install VMware Workstation: Begin by setting up a VMware environment, such as VMware Workstation. This will serve as the platform for creating and managing your virtual machines.
-
 2. Download Amazon Linux 2 ISO: Visit the Amazon Linux 2 VM User Guide and download the Amazon Linux 2 ISO file.
 3. Use the downloaded ISO to create a new virtual machine in your VMware Workstation.
 4. Create and Attach Volume: After setting up the Amazon Linux 2 VM, create an additional storage volume and attach it to the VM created in Step 2.
 5. Download the script from the following URL: Convertor-GCP.sh.
 6. Grant executable permissions to the downloaded script using the command:
-```# chmod a+x Convertor-GCP.sh```
+`# chmod a+x Convertor-GCP.sh`
 7. Execute the Script: Run the script by executing:
-```# ./Convertor-GCP.sh```
+`# ./Convertor-GCP.sh`
 
 The script will prompt you to enter several details:
 
