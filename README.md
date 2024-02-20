@@ -76,8 +76,10 @@ realtime =none                   extsz=4096   blocks=0, rtextents=0
 /dev/xvdb1: UUID="33a2073d-a4a6-46c1-86b3-18e947ad651d" TYPE="xfs" PARTUUID="b3d3b77d-01"
 ```
 6. Download the Convertor Script: Retrieve the script from the provided URL: `wget https://raw.githubusercontent.com/shanmugamshnker/aws-drs-failback-client-azure-gcp/document_fix/Convertor-GCP.sh`
+
 7.Grant executable permissions to the downloaded script using the command:
 `# chmod a+x Convertor-GCP.sh`
+
 8. Execute the Script: Run the script by executing:
 `# ./Convertor-GCP.sh`
 
